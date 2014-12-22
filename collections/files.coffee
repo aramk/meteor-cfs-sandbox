@@ -23,6 +23,8 @@ Meteor.startup ->
 
     if Meteor.isServer
       Meteor.publish 'files', -> Files.find()
+    else
+      Meteor.subscribe('files')
 
     # File IDs to deferred promises containing their data.
     fileCache = {}
